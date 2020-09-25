@@ -26,9 +26,9 @@
     "sass-loader": "^10.0.2"
   },
   "eslintConfig": {
-    "root": true,
+    "root": false,
     "env": {
-      "node": true
+      "node": false
     },
     "extends": [
       "plugin:vue/vue3-essential",
@@ -37,7 +37,9 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {}
+    "rules": {
+      "no-unuser-vars":"off"      
+    }
   },
   "browserslist": [
     "> 1%",
