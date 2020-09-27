@@ -8,10 +8,11 @@
 <script>
 /**1.toRef */
 // import {ref} from 'vue'
-import {toRef} from 'vue'
+// import {toRef} from 'vue'
+import {toRefs} from 'vue'
 export default {
     setup(){
-        let obj = {name:'ccc'}
+        let obj = {name:'ccc',age:18}
         /**
          ref(obj.name) -> ref(ccc)
          ->reactive({value:ccc})
@@ -28,10 +29,12 @@ export default {
          *  toRef应用场景 :
          * 如果想让响应式数据和以前的关联起来,并且更新响应式数据之后还不想更新UI,那么就可以使用t oRef
          */
-        let state = toRef(obj,'name')
-        console.log(state)
+        // let state = toRef(obj,'name')
+        let state = toRefs(obj)
         function mybtn(){
-            state.value = 'cwl'
+            // state.value = 'cwl'
+            state.name.value = 'cwl'
+            state.age.value = '666'
             /**
              结论:如果利用ref将某一个对象中的属性变成响应式的数据
                 我们修改响应式的数据是不会影响到原始数据的
@@ -41,8 +44,8 @@ export default {
                    我们修改响应式的数据是会影响到原始数据的
                    如果响应式的数据是通过toRef创建的,那么修改了数据并不会触发UI界面的更新
              */
-            console.log(obj)
             console.log(state)
+            console.log(obj)           
         }
     return {state,mybtn}       
     }

@@ -38,7 +38,7 @@
       "parser": "babel-eslint"
     },
     "rules": {
-      "no-unuser-vars":"off"      
+      "no-unuser-vars":0      
     }
   },
   "browserslist": [

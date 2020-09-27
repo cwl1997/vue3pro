@@ -8,6 +8,9 @@ import shallowRef from '@/view/study/shallowRef'
 import toRow from '@/view/study/toRow'
 import markRow from '@/view/study/markRaw'
 import toRef from '@/view/study/toRef'
+import customRef from '@/view/study/customRef'
+import getRef from '@/view/study/getRef'
+
 // import login from '@/system/login.vue'
 
 const history = createWebHistory();
@@ -49,6 +52,14 @@ const router = createRouter({
         {
             path:'/toRef',
             component:toRef
+        },
+        {
+            path:'/customRef',
+            component:customRef
+        },
+        {
+            path:'/getRef',
+            component:getRef
         }
     ]
 })
