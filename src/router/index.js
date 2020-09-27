@@ -4,6 +4,10 @@ import index from '@/view/index/index.vue'
 import test from '@/view/test/test.vue'
 import reflearn from "@/view/study/ref.vue"
 import watch from '@/view/study/watch'
+import shallowRef from '@/view/study/shallowRef'
+import toRow from '@/view/study/toRow'
+import markRow from '@/view/study/markRaw'
+import toRef from '@/view/study/toRef'
 // import login from '@/system/login.vue'
 
 const history = createWebHistory();
@@ -29,6 +33,22 @@ const router = createRouter({
         {
             path:'/watch',
             component:watch
+        },
+        {
+            path:'/shallowRef',
+            component:shallowRef
+        },
+        {
+            path:'/toRow',
+            component:toRow
+        },
+        {
+            path:'/markRow',
+            component:markRow
+        },
+        {
+            path:'/toRef',
+            component:toRef
         }
     ]
 })
