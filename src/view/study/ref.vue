@@ -21,6 +21,7 @@
               如果有这个私有的属性,并且取值为true,那么就代表是一个ref类型的数据 
           -->
         <h1>{{age}}</h1>
+        <h1>{{testnum}}</h1>
         <button @click="mybtn">打印</button>
     </div>
 </template>
@@ -41,7 +42,7 @@
 */
 /*ref和reactive 的区别 */
 import {isRef,isReactive} from 'vue'
-import { reactive } from 'vue'
+import { reactive , watch,ref, unref} from 'vue'
 // import {ref} from 'vue'
 export default {
     setup(){
@@ -55,15 +56,26 @@ export default {
          ref(18)->reactive({value:18})
          */
         // let age = ref(18)
-        let age = reactive({value:18})
+        let age = ref(18)
+        let num = 555
+        let testnum = ref(88)
         function mybtn(){
             // state.age = 666;
             // age=666
-            console.log(isRef(age));
-            console.log(isReactive(age));
-            age.value = 666            
+            // console.log(isRef(age));
+            // console.log(isReactive(age));
+            age.value += 1   
+            testnum.value += 1        
         }
-        return {age,mybtn} 
+        watch([age,testnum],([newage,newnum],[oldage,oldnum])=>{
+            console.log('old',oldage,oldnum)
+            console.log('newVal',newage,newnum)
+        })
+        // watch(testnum,(newval,oldval)=>{
+        //     console.log('old',oldval)
+        //     console.log('newVal',newval)
+        // })
+        return {age,mybtn,testnum} 
     }
 }
 </script>
